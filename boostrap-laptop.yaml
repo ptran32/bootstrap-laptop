@@ -1,4 +1,4 @@
-- hosts: localhost
+- hosts: distant
 #  connection: local
   become: yes
   vars:
@@ -6,4 +6,4 @@
     user_home: "{{ lookup('env', 'HOME') }}"
   roles:
     - base
-    - iterm2
+      #    - iterm2

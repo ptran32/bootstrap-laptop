@@ -1,12 +1,10 @@
 - name: install basic packages with apt-get
-  homebrew: name={{item}} state=present
+  apt: name={{item}} state=present
   with_items:
     - wget
     - curl
     - tig
-    - ssh-copy-id
     - tree
     - emacs
     - vim
-    - packer
     - tig
