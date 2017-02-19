@@ -1,0 +1,29 @@
+
+- name: copy solarized dark file
+  copy: src=files/solarized-dark-theme.itermcolors dest={{user_home}}/solarized-dark-theme.itermcolors
+
+- name: Verify if solarized-dark is already present
+  stat: path={{user_home}}/solarized-dark-theme.itermcolors
+  register: p
+
+- name: set default terminal to solarized-dark
+  raw: open {{user_home}}/solarized-dark-theme.itermcolors
+  ignore_errors: yes
+  when: not p.stat.exists
+
+- name: test if Meslo fonts are present 
+  stat: path={{user_home}}/.fonts
+  register: f
+
+- name: Clone Meslo Font
+  git: repo=https://github.com/powerline/fonts.git
+       dest={{user_home}}/.fonts
+       depth=1
+  when: not f.stat.exists
+
+- name: launch meslo install
+  command: sh {{user_home}}/.fonts/install.sh
+  sudo: no
+
+- name: copy iterm2 profile
+  copy: src=files/solarized-dark-theme.itermcolors dest={{user_home}}

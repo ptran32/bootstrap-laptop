@@ -1,0 +1,23 @@
+- name: install basic packages with homebrew
+  homebrew: name={{item}} state=present
+  with_items:
+    - wget
+    - curl
+    - tig
+    - ssh-copy-id
+    - md5sha1sum
+    - tree
+    - emacs
+    - vim
+    - packer
+
+- name: install basic packages with homebew_cask
+  homebrew_cask: name={{item}} state=present
+  with_items:
+    - vagrant
+    - vagrant-manager
+    - virtualbox
+
+# zsh and oh-my-zsh
+- name: install zsh
+  homebrew: name=zsh

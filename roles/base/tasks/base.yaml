@@ -1,0 +1,21 @@
+
+- name: test if zsh has been installed before
+  stat: path={{user_home}}/.oh-my-zsh/oh-my-zsh.sh
+  register: p
+
+# Clone oh-my-zsh with depth=1 to improve download
+- name: clone oh-my-zsh repo
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git
+       dest={{user_home}}/.oh-my-zsh
+       depth=1
+  when: not p.stat.exists 
+
+#- name: backup original zshrc
+#  copy: src={{user_home}}/.zshrc dest={{user_home}}/.zshrc.orig
+
+- name: deploy .zshrc file
+  template: src=zshrc.sh dest={{user_home}}/.zshrc owner={{whoami}}
+
+- name: set zsh as default shell
+  sudo: yes
+  shell: chsh -s $(which zsh) {{whoami}}

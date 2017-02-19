@@ -1,0 +1,9 @@
+- hosts: localhost
+#  connection: local
+  become: yes
+  vars:
+    whoami: "{{ lookup('env', 'USER') }}"
+    user_home: "{{ lookup('env', 'HOME') }}"
+  roles:
+    - base
+    - iterm2
