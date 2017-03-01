@@ -20,5 +20,5 @@ Install ansible
 ansible-playbook -i hosts -K boostrap-laptop.yaml
 
 
-vagra
+
 
