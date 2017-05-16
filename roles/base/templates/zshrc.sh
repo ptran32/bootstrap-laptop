@@ -1,3 +1,5 @@
+export VISUAL=vim
+export EDITOR="$VISUAL"
 export TERM="xterm-256color"
 
 # Set default user to avoid long name in prompt
