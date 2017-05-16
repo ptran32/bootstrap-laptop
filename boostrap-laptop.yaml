@@ -1,5 +1,5 @@
-- hosts: distant
-#  connection: local
+- hosts: localhost
+  connection: local
   become: yes
   vars:
     whoami: "{{ lookup('env', 'USER') }}"
