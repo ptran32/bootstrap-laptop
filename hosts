@@ -1,6 +1,3 @@
 [localhost]
 127.0.0.1 ansible_connection=local 
 
-[distant]
-192.168.1.33 ansible_user=patrice ansible_ssh_pass=root
-
