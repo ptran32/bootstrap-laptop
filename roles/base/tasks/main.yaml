@@ -1,13 +1,13 @@
 - include: homebrew.yaml
   when: ansible_os_family == 'Darwin'
-  sudo: yes
+  become: yes
   
 - include: apt.yaml
   when: ansible_pkg_mgr == 'apt'
-  sudo: yes
+  become: yes
 
 - include: base.yaml
-  sudo: yes
+  become: yes
 
 - set_fact:
     role_basic_done: true

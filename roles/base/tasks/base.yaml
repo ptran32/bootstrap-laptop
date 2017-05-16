@@ -13,6 +13,24 @@
 #- name: backup original zshrc
 #  copy: src={{user_home}}/.zshrc dest={{user_home}}/.zshrc.orig
 
+# Install Powerlevel9k
+- name: install powerlevel9k
+  git: repo=https://github.com/bhilburn/powerlevel9k.git 
+       dest={{user_home}}/.oh-my-zsh/custom/themes/powerlevel9k
+       depth=1
+  when: not p.stat.exists
+
+# Install Fonts
+
+- name: create directory for fonts
+  file: path={{user_home}}/.config/fontconfig/conf.d state=directory
+
+- name: install fonts.otf
+  get_url: url=https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf dest={{user_home}}/.fonts/
+
+- name: install fonts.conf
+  get_url: url=https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf dest={{user_home}}/.config/fontconfig/conf.d/
+
 - name: deploy .zshrc file
   template: src=zshrc.sh dest={{user_home}}/.zshrc owner={{whoami}}
 
