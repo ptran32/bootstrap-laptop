@@ -15,6 +15,8 @@ unamestr=$(uname)
 # time that oh-my-zsh is loaded.
 ZSH_THEME="{{zsh_theme}}"
 
+POWERLEVEL9K_DISABLE_RPROMPT=true
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -55,9 +57,9 @@ ZSH_THEME="{{zsh_theme}}"
 # Add wisely, as too many plugins slow down shell startup.
 
 if [[ $unamestr == "Darwin" ]]; then
-    plugins=(git brew vagrant aws z )
+    plugins=(git brew vagrant aws z take docker)
 else
-    plugins=(git)
+    plugins=(git vagrant aws z take docker)
 fi
 
 source $ZSH/oh-my-zsh.sh
