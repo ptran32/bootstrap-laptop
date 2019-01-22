@@ -7,7 +7,6 @@
     - ssh-copy-id
     - md5sha1sum
     - tree
-    - emacs
     - vim
     - packer
 
