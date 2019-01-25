@@ -9,6 +9,7 @@
     - tree
     - vim
     - packer
+    - ranger
 
 - name: install basic packages with homebew_cask
   homebrew_cask: name={{item}} state=present
