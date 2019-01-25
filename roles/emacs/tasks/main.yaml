@@ -1,2 +1,0 @@
-- name: copy emacs bootsrap configuration file
-  copy: src=files/
