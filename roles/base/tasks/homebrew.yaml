@@ -10,6 +10,13 @@
     - vim
     - packer
     - ranger
+    - yq
+    - minikube
+    - jq
+    - httpie
+    - exa
+    - ccat
+    - kube-ps1
 
 - name: install basic packages with homebew_cask
   homebrew_cask: name={{item}} state=present
