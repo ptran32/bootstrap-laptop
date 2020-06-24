@@ -1,10 +1,4 @@
 - name: install basic packages with apt-get
-  apt: name={{item}} state=present
-  with_items:
-    - wget
-    - curl
-    - tig
-    - tree
-    - vim
-    - tig
-    - terminator
+  apt:
+    name: "{{ apt_packages }}"
+    state: present

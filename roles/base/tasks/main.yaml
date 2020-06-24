@@ -5,6 +5,3 @@
   when: ansible_pkg_mgr == 'apt'
 
 - include: base.yaml
-
-- set_fact:
-    role_basic_done: true

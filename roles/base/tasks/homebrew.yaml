@@ -1,30 +1,4 @@
-- name: install basic packages with homebrew
-  homebrew: name={{item}} state=present
-  with_items:
-    - wget
-    - curl
-    - tig
-    - ssh-copy-id
-    - md5sha1sum
-    - tree
-    - vim
-    - packer
-    - ranger
-    - yq
-    - minikube
-    - jq
-    - httpie
-    - exa
-    - ccat
-    - kube-ps1
-
-- name: install basic packages with homebew_cask
-  homebrew_cask: name={{item}} state=present
-  with_items:
-    - vagrant
-    - vagrant-manager
-    - virtualbox
-
-# zsh and oh-my-zsh
-- name: install zsh
-  homebrew: name=zsh
+- name: install required packages with homebrew
+  homebrew: 
+    name: "{{ homebrew_packages }}"
+    state: present

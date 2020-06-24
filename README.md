@@ -1,24 +1,17 @@
-# bootstrap-laptop
-Boootstrap my personnal config for mac and Ubuntu using ansible
+## Purpose
+Install all tools needed. Mainly use for macOS for my personal usage.
 
-#OS:
-
+## OS tested:
 Ubuntu 16.04 and Mac OS X
 
-#What this box do ?
+## Requirements
 
-Bootstrap all tools for my needs
+- Ansible 2.7 >= installed
 
-TODO: List all packages
-
-#Requirements:
-
-Install ansible
-
-#How to use this box ?
-
+## Usage 
 ansible-playbook -i hosts -K boostrap-laptop.yaml
 
-
-
-
+## TODO: 
+- Add molecule tests
+- Update the ubuntu part
+- re-organize variables

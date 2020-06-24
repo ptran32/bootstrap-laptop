@@ -1,1 +1,29 @@
 zsh_theme: powerlevel9k/powerlevel9k
+
+homebrew_packages:
+  - wget
+  - curl
+  - tig
+  - ssh-copy-id
+  - md5sha1sum
+  - tree
+  - vim
+  - packer
+  - ranger
+  - yq
+  - minikube
+  - jq
+  - httpie
+  - exa
+  - ccat
+  - kube-ps1
+  - zsh
+
+apt_packages:
+  - wget
+  - curl
+  - tig
+  - tree
+  - vim
+  - tig
+  - terminator
