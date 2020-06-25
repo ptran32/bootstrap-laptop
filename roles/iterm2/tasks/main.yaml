@@ -29,7 +29,7 @@
 
 - name: launch meslo install
   command: sh {{ user_home }}/.fonts/install.sh
-  sudo: no
+  changed_when: false
 
 - name: copy iterm2 profile
   copy:
