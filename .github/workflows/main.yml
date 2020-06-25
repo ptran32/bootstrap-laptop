@@ -53,11 +53,3 @@ jobs:
         #                         repeatable.
         #   -c C                  Specify configuration file to use. Defaults to ".ansible-lint"
         args: "-x 401"
-
-  molecule:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          path: "${{ github.repository }}"
-      - uses: gofrolist/molecule-action@master
