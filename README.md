@@ -1,3 +1,5 @@
+![Ansible Lint](https://github.com/ptran32/bootstrap-laptop/workflows/Ansible%20Lint/badge.svg)
+
 ## Purpose
 Install all tools needed. Mainly use for macOS for my personal usage.
 
