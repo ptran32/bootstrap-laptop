@@ -1,6 +1,6 @@
 
 - name: test if ohmyzsh has been installed before
-  stat: 
+  stat:
     path: "{{ user_home }}/.oh-my-zsh/oh-my-zsh.sh"
   register: path
 
@@ -22,8 +22,8 @@
 
 # Install Fonts
 - name: create directory for fonts
-  file: 
-    path: "{{user_home}}/.config/fontconfig/conf.d state=directory"
+  file:
+    path: "{{ user_home }}/.config/fontconfig/conf.d state=directory"
 
 - name: install fonts.otf
   get_url:
@@ -45,3 +45,4 @@
 - name: set zsh as default shell
   become: true
   shell: chsh -s $(which zsh) {{ whoami }}
+  changed_when: false

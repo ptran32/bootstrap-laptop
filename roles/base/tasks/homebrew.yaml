@@ -1,4 +1,4 @@
 - name: install required packages with homebrew
-  homebrew: 
+  homebrew:
     name: "{{ homebrew_packages }}"
     state: present

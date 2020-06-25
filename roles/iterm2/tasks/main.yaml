@@ -2,15 +2,15 @@
 - name: copy solarized dark file
   copy:
     src: files/solarized-dark-theme.itermcolors
-    dest: "{{user_home}}/solarized-dark-theme.itermcolors"
+    dest: "{{ user_home }}/solarized-dark-theme.itermcolors"
 
 - name: Verify if solarized-dark is already present
   stat:
-    path: "{{user_home}}/solarized-dark-theme.itermcolors"
+    path: "{{ user_home }}/solarized-dark-theme.itermcolors"
   register: path
 
 - name: set default terminal to solarized-dark
-  raw: open {{user_home}}/solarized-dark-theme.itermcolors
+  raw: open {{ user_home }}/solarized-dark-theme.itermcolors
   ignore_errors: yes
   when: not path.stat.exists
 
@@ -24,6 +24,7 @@
     repo: https://github.com/powerline/fonts.git
     dest: "{{ user_home }}/.fonts"
     depth: "1"
+    changed_when: false
   when: not file.stat.exists
 
 - name: launch meslo install
