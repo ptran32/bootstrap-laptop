@@ -6,16 +6,16 @@
 
 # Clone oh-my-zsh if not present
 - name: clone oh-my-zsh repo
-  git: 
+  git:
     repo: https://github.com/robbyrussell/oh-my-zsh.git
     dest: "{{ user_home }}/.oh-my-zsh"
     depth: "1"
-  when: not path.stat.exists 
+  when: not path.stat.exists
 
 # Install Powerlevel9k
 - name: install powerlevel9k
-  git: 
-    repo: https://github.com/bhilburn/powerlevel9k.git 
+  git:
+    repo: https://github.com/bhilburn/powerlevel9k.git
     dest: "{{ user_home }}/.oh-my-zsh/custom/themes/powerlevel9k"
     depth: "1"
   when: not path.stat.exists
@@ -26,18 +26,18 @@
     path: "{{user_home}}/.config/fontconfig/conf.d state=directory"
 
 - name: install fonts.otf
-  get_url: 
-    url: "https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf" 
+  get_url:
+    url: "https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf"
     dest: "{{ user_home }}/.fonts/"
 
 - name: install fonts.conf
-  get_url: 
-    url: https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf 
+  get_url:
+    url: https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
     dest: "{{ user_home }}/.config/fontconfig/conf.d/"
 
 - name: deploy .zshrc file
-  template: 
-    src: "zshrc.sh" 
+  template:
+    src: "zshrc.sh"
     dest: "{{ user_home }}/.zshrc"
     owner: "{{ whoami }}"
 

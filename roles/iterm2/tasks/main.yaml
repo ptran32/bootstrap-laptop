@@ -1,11 +1,11 @@
 
 - name: copy solarized dark file
-  copy: 
-    src: files/solarized-dark-theme.itermcolors 
+  copy:
+    src: files/solarized-dark-theme.itermcolors
     dest: "{{user_home}}/solarized-dark-theme.itermcolors"
 
 - name: Verify if solarized-dark is already present
-  stat: 
+  stat:
     path: "{{user_home}}/solarized-dark-theme.itermcolors"
   register: path
 
@@ -14,13 +14,13 @@
   ignore_errors: yes
   when: not path.stat.exists
 
-- name: test if Meslo fonts are present 
-  stat: 
+- name: test if Meslo fonts are present
+  stat:
     path: "{{ user_home }}/.fonts"
   register: file
 
 - name: Clone Meslo Font
-  git: 
+  git:
     repo: https://github.com/powerline/fonts.git
     dest: "{{ user_home }}/.fonts"
     depth: "1"
