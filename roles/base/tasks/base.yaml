@@ -21,19 +21,29 @@
   when: not path.stat.exists
 
 # Install Fonts
-- name: create directory for fonts
+- name: create directoriesfor fonts
   file:
-    path: "{{ user_home }}/.config/fontconfig/conf.d state=directory"
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "{{ user_home }}/.config/fontconfig/conf.d"
+    - "{{ user_home }}/.fonts/"
 
-- name: install fonts.otf
-  get_url:
-    url: "https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf"
-    dest: "{{ user_home }}/.fonts/"
+- name: Download fonts.otf
+  git:
+    repo: "https://github.com/powerline/fonts.git"
+    depth: 1
+    dest: "/tmp/fonts"
 
-- name: install fonts.conf
-  get_url:
-    url: https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
-    dest: "{{ user_home }}/.config/fontconfig/conf.d/"
+- name: Install fonts.conf
+  shell:
+    cmd: "./install.sh"
+    chdir: "/tmp/fonts"
+
+- name: Clean font install
+  file:
+    path: "/tmp/fonts"
+    state: "absent"
 
 - name: deploy .zshrc file
   template:
