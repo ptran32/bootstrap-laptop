@@ -19,6 +19,10 @@ homebrew_packages:
   - zsh
   - docker
   - pygments
+  - kubectl
+  - kubectx
+  - terraform
+  - yleisradio/terraforms/chtf
 
 apt_packages:
   - wget
