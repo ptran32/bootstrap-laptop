@@ -4,6 +4,8 @@ syntax on
 set nobackup
 set noswapfile
 set noundofile
+set backspace=indent,eol,start
+
 
 
 
